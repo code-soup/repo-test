@@ -1,4 +1,4 @@
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   ziploy_job:
@@ -12,4 +12,4 @@ jobs:
 
       - name: Ziploy your code to server
         id: Ziploy
-        uses: code-soup/ziploy-github-action@v0.0.1-alpha
+        uses: code-soup/ziploy-github-action@master

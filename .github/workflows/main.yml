@@ -10,6 +10,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # Run Ziploy
       - name: Ziploy your code to server
-        id: Ziploy
         uses: code-soup/ziploy-github-action@master
+        id: ziploy
+        with:
+          id: ${{ secrets.ZIPLOY_ID }}
+          host: ${{ secrets.ZIPLOY_HOST }}
+          secret: ${{ secrets.ZIPLOY_SECRET }}
+
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.ziploy.outputs.time }}"

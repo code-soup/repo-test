@@ -15,6 +15,7 @@ jobs:
       # Run
       - name: Pass that env
         uses: code-soup/repo-action@master
+        id: hello
         with:
           who-to-greet: ${{ secrets.MY_HOST }}
 

@@ -29,5 +29,5 @@ jobs:
       - name: Pass that env
         uses: code-soup/repo-action@master
         with:
-          host: ${{ env.MY_HOST }}
-          secret: "your-secret-from-workflow"
+          host: ${{ secrets.MY_HOST }}
+          secret: "my-secret-from-workflow"

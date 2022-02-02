@@ -1,16 +1,6 @@
 name: Testing
 
-on:
-  workflow_dispatch:
-    inputs:
-      host:
-        description: 'Test scenario tags'
-        required: true
-        type: string
-      secret:
-        description: 'Test scenario tags'
-        required: true
-        type: string
+on: push
 
 env:
   host: ${{ secrets.MY_HOST }}

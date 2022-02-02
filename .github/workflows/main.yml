@@ -1,6 +1,6 @@
 name: Testing
 
-on: push
+on: [push]
 
 env:
   host: ${{ secrets.MY_HOST }}
@@ -18,6 +18,9 @@ jobs:
       # Run
       - name: Pass that env
         uses: code-soup/repo-action@master
-        env:
-          secret: "my-secret-from-workflow"
-          host: ${{ secrets.MY_HOST }}
+        with:
+          who-to-greet: 'Mona the Octocat'
+
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

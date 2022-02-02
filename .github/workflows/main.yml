@@ -2,9 +2,6 @@ name: Testing
 
 on: [push]
 
-env:
-  host: ${{ secrets.MY_HOST }}
-
 jobs:
   my_job:
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-name: Ziploy
+name: Testing
 
 on:
   workflow_dispatch:
@@ -25,9 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Run Ziploy
+      # Run
       - name: Pass that env
         uses: code-soup/repo-action@master
-        with:
-          host: ${{ secrets.MY_HOST }}
+        env:
           secret: "my-secret-from-workflow"
+          host: ${{ secrets.MY_HOST }}

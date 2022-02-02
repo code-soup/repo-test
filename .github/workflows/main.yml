@@ -6,7 +6,11 @@ on:
       host:
         description: 'Test scenario tags'
         required: true
-        type: boolean
+        type: string
+      secret:
+        description: 'Test scenario tags'
+        required: true
+        type: string
 
 env:
   host: ${{ secrets.MY_HOST }}
@@ -26,3 +30,4 @@ jobs:
         uses: code-soup/repo-action@master
         with:
           host: ${{ env.MY_HOST }}
+          secret: "my-secret"

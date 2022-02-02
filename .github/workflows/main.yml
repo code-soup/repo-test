@@ -30,4 +30,4 @@ jobs:
         uses: code-soup/repo-action@master
         with:
           host: ${{ env.MY_HOST }}
-          secret: "my-secret"
+          secret: "your-secret-from-workflow"

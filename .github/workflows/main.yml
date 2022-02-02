@@ -24,6 +24,5 @@ jobs:
       # Run Ziploy
       - name: Pass that env
         uses: code-soup/repo-action@master
-        id: ziploy
         with:
           host: ${{ env.MY_HOST }}

@@ -23,12 +23,12 @@ jobs:
         uses: code-soup/repo-action@master
         id: ziploy
         with:
-          #ziploy-id: ${{ secrets.ZIPLOY_ID }}
-          #ziploy-host: ${{ secrets.ZIPLOY_HOST }}
-          #ziploy-secret: ${{ secrets.ZIPLOY_SECRET }}
-          ziploy-id: 7
-          ziploy-host: "https://www.ziploy.com/wp-json/ziploy/v1/update"
-          ziploy-secret: "0980a111efbb0e97586d4d26330e3ec54d53eb495081dea9db305a4009857fd4"
+          ziploy-id: ${{ secrets.ZIPLOY_ID }}
+          ziploy-host: ${{ secrets.ZIPLOY_HOST }}
+          ziploy-secret: ${{ secrets.ZIPLOY_SECRET }}
+          #ziploy-id: 7
+          #ziploy-host: "https://www.ziploy.com/wp-json/ziploy/v1/update"
+          #ziploy-secret: "0980a111efbb0e97586d4d26330e3ec54d53eb495081dea9db305a4009857fd4"
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3

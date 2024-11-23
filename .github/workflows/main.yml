@@ -20,7 +20,7 @@ jobs:
 
       # Run
       - name: Ziploy
-        uses: code-soup/repo-action@master
+        uses: code-soup/ziploy-github-action@master
         id: ziploy
         with:
           ziploy-id: ${{ secrets.ZIPLOY_ID }}

@@ -9,15 +9,28 @@ on:
         default: false
 
 jobs:
-  my_job:
-    runs-on: ubuntu-latest
-    name: Deploy with Zeploy
-    steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
+    deploy:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
+        container: codesoup/pumpkin  # Use your custom Docker image
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
+            - name: Install Dependencies (If Not Already Installed)
+              run: |
+                  yarn install --frozen-lockfile
+                  composer install --no-dev --prefer-dist
+
+            - name: Run Ziploy
+              run: |
+                  ziploy deploy \
+                      --host $ZIPLOY_HOST \
+                      --id $ZIPLOY_ID \
+                      --secret $ZIPLOY_SECRET
+              env:
+                  ZIPLOY_HOST: ${{ secrets.ZIPLOY_HOST }}
+                  ZIPLOY_ID: ${{ secrets.ZIPLOY_ID }}
+                  ZIPLOY_SECRET: ${{ secrets.ZIPLOY_SECRET }}
+
+            - name: Start tmate session (debugging)
+              uses: mxschmitt/action-tmate@v3
